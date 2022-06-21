@@ -1,0 +1,13 @@
+{
+    "user": {
+        "pass": "yo",
+        "Limit": false,
+        "Volume": "500ml",
+        "Water Values": "35%",
+        "flowrate": "5 l/min",
+        "total capacity": "9000 lits",
+        "address": "Earth",
+        "data": "val"
+    },
+    "data": "1234"
+}
