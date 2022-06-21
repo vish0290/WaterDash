@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
-        return "Hello there"
+        return "<h1>Hello there </h1>"
 
 
 
