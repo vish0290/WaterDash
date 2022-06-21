@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
-    if not log:
-        return "Login First"
+        return "Hello there"
 
 
 
