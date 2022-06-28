@@ -47,6 +47,7 @@ def update_date(uid,fi,val):
             maindata[fi] = val
             data[uid] = maindata       
             res = requests.put(url,json=data, headers= headers)
+            return "<h1>dance brooo it got updated</h1>"+jsonify(data)
         else:
             return "<h1>Field is not present</h1>"
     
