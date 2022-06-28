@@ -3,9 +3,9 @@ import json,os
 # creating a Flask app
 app = Flask(__name__)
 
-url = 'https://api.jsonbin.io/v3/b/62b6a6d6402a5b380238a721/latest'
+url = 'https://api.jsonbin.io/v3/b/62babd40192a674d291dfc83/'
 headers = {
-  'X-Master-Key': '$2b$10$N.z2Kwz/hDVThtJ6GNi.suZ9NKOF9n1Oji.ROGs.z8wSfZi2mlrUa',
+  'X-Master-Key': '$2b$10$5xrR.z3jZ3mxMw1V4R8vWe.1A5P2iJ4mpP8AHtqtKE3ozSJ41NFOC',
   'Content-Type': 'application/json'
 }
 
@@ -45,7 +45,6 @@ def update_date(uid,fi,val):
         maindata[fi] = val
         data[uid] = maindata       
         res = requests.put(url,json=data, headers= headers)
-        return jsonify(res)
     else:
         return "<h1>Field is not present</h1>"
 
