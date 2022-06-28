@@ -38,17 +38,19 @@ def login(uid,passw):
 
 @app.route('/update/<string:uid>:<string:fi>:<string:val>', methods = ['GET','POST'])
 def update_date(uid,fi,val):
-    req = requests.get(url,headers=headers)
-    raw_data = json.loads(req.content.decode("UTF-8"))
-    data = raw_data['record']
-    maindata = data[uid]
-    if fi in maindata.keys(): 
-        maindata[fi] = val
-        data[uid] = maindata       
-        res = requests.put(url,json=data, headers= headers)
-    else:
-        return "<h1>Field is not present</h1>"
-
+    try:
+        req = requests.get(url,headers=headers)
+        raw_data = json.loads(req.content.decode("UTF-8"))
+        data = raw_data['record']
+        maindata = data[uid]
+        if fi in maindata.keys(): 
+            maindata[fi] = val
+            data[uid] = maindata       
+            res = requests.put(url,json=data, headers= headers)
+        else:
+            return "<h1>Field is not present</h1>"
+    except:
+        return "<h1>Loude lagaya</h1>"
     
 if __name__ == '__main__':
   
