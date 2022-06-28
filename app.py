@@ -36,7 +36,7 @@ def login(uid,passw):
     else:
         return "User does not exist" 
 
-@app.route('/update/<string:uid>:<string:fi>:<string:val>', methods = ['GET','POST'])
+@app.route('/update/<string:uid>:<string:fi>:<string:val>', methods = ['GET'])
 def update_date(uid,fi,val):
     try:
         req = requests.get(url,headers=headers)
