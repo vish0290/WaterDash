@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-{
-    "user": {
-        "pass": "yo",
-        "Limit": false,
-        "Volume": "250ml",
-        "Water Values": "35%",
-        "flowrate": "7 l/min",
-        "total capacity": "9000 lits",
-        "address": "Earth",
-        "data": "3000"
-    }
-=======
 {
     "user": {
         "pass": "yo",
@@ -22,5 +9,4 @@
         "address": "Earth",
         "data": "sachin"
     }
->>>>>>> 2be142c37c1a0965348a67712b09fcef9ce4d8ec
 }

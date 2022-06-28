@@ -3,6 +3,13 @@ import json,os
 # creating a Flask app
 app = Flask(__name__)
 
+url = 'https://api.jsonbin.io/v3/b/62b6a6d6402a5b380238a721/latest'
+headers = {
+  'X-Master-Key': '$2b$10$N.z2Kwz/hDVThtJ6GNi.suZ9NKOF9n1Oji.ROGs.z8wSfZi2mlrUa',
+  'Content-Type': 'application/json'
+}
+
+
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
@@ -30,20 +37,18 @@ def login(uid,passw):
 
 @app.route('/update/<string:uid>:<string:fi>:<string:val>', methods = ['GET','POST'])
 def update_date(uid,fi,val):
-    file = 'data.json'
-    f = open(file ,'r')
-    rawdata = json.load(f)
-    f.seek(0)
-    f.close()
-    maindata = rawdata[uid]
+    req = requests.get(url,headers=headers)
+    raw_data = json.loads(req.content.decode("UTF-8"))
+    data = raw_data['record']
+    maindata = data[uid]
     if fi in maindata.keys(): 
         maindata[fi] = val
-        rawdata[uid] = maindata
-        with open(file,'w') as w:
-            json.dump(rawdata,w,indent=4)
-            return jsonify(rawdata)
+        data[uid] = maindata       
+        res = requests.put(url,json=data, headers= headers)
+        return jsonify(res)
     else:
-        print("Field is not present") 
+        return "<h1>Field is not present</h1>"
+
     
 if __name__ == '__main__':
   

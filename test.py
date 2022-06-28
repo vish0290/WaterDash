@@ -1,38 +1,24 @@
-import json, requests
-# userid = 'user'
-# def file_updater(userid,file='demo.json'):
-#     f = open(file ,'r')
-#     rawdata = json.load(f)
-#     f.seek(0)
-#     f.close()
-#     maindata = rawdata[userid]
-#     fi = input('Enter the field name: ')
-#     if fi in maindata.keys():
-#         val = input("Enter the value: ") 
-#         maindata[fi] = val
-#         rawdata[userid] = maindata
-#         with open(file,'w') as w:
-#             json.dump(rawdata,w,indent=4)
-#     else:
-#         print("Field is not present") 
-
-# file_updater(userid)
+import requests,json
+url = 'https://api.jsonbin.io/v3/b/62babd40192a674d291dfc83/'
+headers = {
+  'X-Master-Key': '$2b$10$5xrR.z3jZ3mxMw1V4R8vWe.1A5P2iJ4mpP8AHtqtKE3ozSJ41NFOC'
+}
 
 
-# id = 'user'
-# passw = 'yo'
-# f = open('data.json')
-# maindata = json.load(f)
-# if id in maindata.keys():
-#     data = maindata[id]
-#     if data['pass'] == passw:
-#         file_updater()
-#     else:
-#         print("Wrong Pass")
-# else:
-#     print("User does not exist")
+def update_date(uid,fi,val):
+    #read data
+    req = requests.get(url,headers=headers)
+    raw_data = json.loads(req.content.decode("UTF-8"))
+    data = raw_data['record']
+    maindata = data[uid]
+    if fi in maindata.keys(): 
+        maindata[fi] = val
+        data[uid] = maindata       
+        res = requests.put(url,json=data, headers= headers)
+        print(res)
+    else:
+        print("Field is not present") 
 
 
-url = 'http://5ea6-34-86-53-23.ngrok.io/update/user:data:800'
-rsp = requests.get(url)
-print(rsp)
+update_date('user1', 'data', 25)
+
