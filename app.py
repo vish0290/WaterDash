@@ -38,7 +38,7 @@ def login(uid,passw):
 
 @app.route('/update/<string:uid>:<string:fi>:<string:val>', methods = ['GET'])
 def update_date(uid,fi,val):
-    try:
+    
         req = requests.get(url,headers=headers)
         raw_data = json.loads(req.content.decode("UTF-8"))
         data = raw_data['record']
@@ -49,8 +49,7 @@ def update_date(uid,fi,val):
             res = requests.put(url,json=data, headers= headers)
         else:
             return "<h1>Field is not present</h1>"
-    except:
-        return "<h1>Loude lagaya</h1>"
+    
     
 if __name__ == '__main__':
   
