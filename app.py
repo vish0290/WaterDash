@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import json,os
 import requests
+from test2 import update_field
 # creating a Flask app
 app = Flask(__name__)
 
@@ -50,7 +51,10 @@ def update_date(uid,fi,val):
             return str(data)
         else:
             return "<h1>Field is not present</h1>"
-    
+
+@app.route('up/<string:fid>:<string:val>', methods=['GET'])
+def update2(fid,val):
+    update_field(fid, val)
     
 if __name__ == '__main__':
   
