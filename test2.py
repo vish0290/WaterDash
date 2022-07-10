@@ -1,5 +1,4 @@
 import pyrebase
-import rsa
 config={  
 "apiKey": "AIzaSyCc0veJ4Kez3iLS8U-qjxhOMFwnzA7WZ7U",
   "authDomain": "fir-46336.firebaseapp.com",

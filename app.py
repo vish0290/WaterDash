@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import json,os
 import requests
+import pyrebase
 from test2 import update_field
 # creating a Flask app
 app = Flask(__name__)
@@ -11,6 +12,15 @@ headers = {
   'Content-Type': 'application/json'
 }
 
+config={  
+"apiKey": "AIzaSyCc0veJ4Kez3iLS8U-qjxhOMFwnzA7WZ7U",
+  "authDomain": "fir-46336.firebaseapp.com",
+  "databaseURL": "https://fir-46336-default-rtdb.asia-southeast1.firebasedatabase.app",
+  "projectId": "fir-46336",
+  "storageBucket": "fir-46336.appspot.com",
+  "messagingSenderId": "1021317922890",
+  "appId": "1:1021317922890:web:71550b203e9eb04f8de6b3",
+  "measurementId": "G-RGCMC81BWC"}
 
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -52,9 +62,13 @@ def update_date(uid,fi,val):
         else:
             return "<h1>Field is not present</h1>"
 
-@app.route('up/<string:fid>:<string:val>', methods=['GET'])
-def update2(fid,val):
-    update_field(fid, val)
+@app.route('/up/<string:fid>:<string:val>', methods=['GET'])
+def update_field(fid,val):  
+    firebase=pyrebase.initialize_app(config)
+    data = {fid:val}
+    db = firebase.database()
+    return  db.update(data) 
+
     
 if __name__ == '__main__':
   
