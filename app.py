@@ -29,26 +29,6 @@ def home():
 
 
 
-
-#  Authentication
-@app.route('/login/<string:uid>:<string:passw>', methods = ['GET','POST']) 
-def login(uid,passw):
-    f = open('data.json')
-    maindata = json.load(f)
-    f.close()
-    if uid in maindata.keys():
-        data = maindata[uid]
-        if data['pass'] == passw:
-            return "Success"
-            user_id = uid
-            log = True
-        else:
-            return "Wrong Pass"
-    else:
-        return "User does not exist" 
-
-
-
 @app.route('/update/<string:fid>:<string:val>', methods=['GET'])
 def update_field(fid,val):  
     firebase=pyrebase.initialize_app(config)
