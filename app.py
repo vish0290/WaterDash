@@ -47,22 +47,9 @@ def login(uid,passw):
     else:
         return "User does not exist" 
 
-@app.route('/update/<string:uid>:<string:fi>:<string:val>', methods = ['GET'])
-def update_date(uid,fi,val):
-    
-        req = requests.get(url,headers=headers)
-        raw_data = json.loads(req.content.decode("UTF-8"))
-        data = raw_data['record']
-        maindata = data[uid]
-        if fi in maindata.keys(): 
-            maindata[fi] = val
-            data[uid] = maindata       
-            res = requests.put(url,json=data, headers= headers)
-            return str(data)
-        else:
-            return "<h1>Field is not present</h1>"
 
-@app.route('/up/<string:fid>:<string:val>', methods=['GET'])
+
+@app.route('/update/<string:fid>:<string:val>', methods=['GET'])
 def update_field(fid,val):  
     firebase=pyrebase.initialize_app(config)
     data = {fid:val}
