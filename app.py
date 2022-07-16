@@ -5,7 +5,7 @@ import pyrebase
 from test2 import update_field
 # creating a Flask app
 app = Flask(__name__)
-
+session = False
 
 config={  
 "apiKey": "AIzaSyCc0veJ4Kez3iLS8U-qjxhOMFwnzA7WZ7U",
@@ -19,6 +19,8 @@ config={
 
 firebase=pyrebase.initialize_app(config)
 db = firebase.database()
+raw = json.loads(json.dumps(db.child('data').get().val()))
+
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
@@ -33,7 +35,16 @@ def process_json():
     else:
         return 'Content-Type not supported!'
 
-
+@app.route('/login',methods=['GET','POST'])
+def login_user():
+    if request.method == "POST":
+        uid = request.form.get('uname')
+        passw = request.form.get('passw')
+        if uid in raw.keys():
+            if passw == raw[uid]['passw']:
+                session = True
+                return render_template('index.html')
+        
 # @app.route('/update/<string:fid>:<string:val>', methods=['GET'])
 # def update_field(fid,val):  
 #     firebase=pyrebase.initialize_app(config)
