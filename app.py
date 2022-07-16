@@ -6,11 +6,6 @@ from test2 import update_field
 # creating a Flask app
 app = Flask(__name__)
 
-url = 'https://api.jsonbin.io/v3/b/62babd40192a674d291dfc83/'
-headers = {
-  'X-Master-Key': '$2b$10$5xrR.z3jZ3mxMw1V4R8vWe.1A5P2iJ4mpP8AHtqtKE3ozSJ41NFOC',
-  'Content-Type': 'application/json'
-}
 
 config={  
 "apiKey": "AIzaSyCc0veJ4Kez3iLS8U-qjxhOMFwnzA7WZ7U",
