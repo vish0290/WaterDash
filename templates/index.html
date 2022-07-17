@@ -23,11 +23,10 @@
                     <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
                 </a>
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
+                    <li class="nav-item">Name: {{data["name"]}}</li>
+                    <li class="nav-item">Address: {{data["address"]}}</li>
+                    <li class="nav-item">Bill: {{data["bill_amount"]}}</li>
+                    <li class="nav-item">Status: {{data["status"]}}</li>
                 </ul>
                 <div class="text-center d-none d-md-inline"></div>
             </div>
@@ -40,7 +39,9 @@
                             <li class="nav-item"><a class="nav-link active" href="payments.html">Payments</a></li>
                             <li class="nav-item"><a class="nav-link" href="logs.html">Transaction Logs</a></li>
                             <li class="nav-item"></li>
-                        </ul><i class="fa fa-sign-in" style="font-size: 30px;"></i><i class="fa fa-sign-out" style="font-size: 30px;margin-left: 15px;"></i>
+                            <a type="button" class="btn btn-secondary"   href="{{url_for('login')}}">Sign in</a>
+                            <a type="button" href="{{url_for('home')}}" class="btn btn-secondary">Sign out</a>
+                        </ul>
                     </div>
                 </div>
             </nav>
