@@ -36,14 +36,15 @@ def process_json():
         return 'Content-Type not supported!'
 
 @app.route('/login',methods=['GET','POST'])
-def login_user():
+def login():
     if request.method == "POST":
         uid = request.form.get('uname')
         passw = request.form.get('passw')
-        if uid in raw.keys():
+        if uid in list(raw.keys()):
             if passw == raw[uid]['passw']:
                 session = True
                 return render_template('index.html')
+    return render_template('login.html')
         
 # @app.route('/update/<string:fid>:<string:val>', methods=['GET'])
 # def update_field(fid,val):  

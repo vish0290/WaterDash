@@ -1,13 +1,76 @@
 {
-    "user": {
-        "pass": "yo",
-        "Limit": false,
-        "Volume": "500ml",
-        "Water Values": "35%",
-        "flowrate": "5 l/min",
-        "total capacity": "9000 lits",
-        "address": "Earth",
-        "data": "val"
-    },
-    "data": "1234"
-}
+    "data": {
+      "user1": {
+        "passw":1234,
+        "flowrate": "5l-min",
+        "height": 50,
+        "limit": false,
+        "date":{
+          "16-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "15-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "14-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "13-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "12-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "11-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "10-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          }
+        }
+      },
+      "user2": {
+        "passw":1234,
+        "flowrate": "5l-min",
+        "height": 50,
+        "limit": false,
+        "date":{
+          "16-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "15-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "14-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "13-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "12-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "11-7-2022":{
+            "volume": "85l",
+            "water_lvl": "35%"
+          },
+          "10-7-2022":{
+            "volume": "0l",
+            "water_lvl": "35%"
+          }
+        }
+      }
+    }
+  }
