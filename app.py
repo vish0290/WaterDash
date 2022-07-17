@@ -93,6 +93,12 @@ def home():
         return render_template('index.html', data = data_dic, flow=flowrate)
     return redirect('/login')
 
+@app.route('/logout',methods=['POST','GET'])
+def logout():
+    global session
+    session=False
+    return redirect('/login')
+
 @app.route('/logs',methods=['GET','POST'])
 def logs():
     if session:
