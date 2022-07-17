@@ -29,24 +29,29 @@ usne_enter_kiya="user2"
 # Status
 # Date Name Address Bill Status 
 
-data_dic = {
-    'name': raw[usne_enter_kiya]["name"],
-    "address" : raw[usne_enter_kiya]["address"],
-    "bill_amount" : raw[usne_enter_kiya]['bill'][current_month]["bill_amount"],
-    "status" : raw[usne_enter_kiya]['bill'][current_month]["status"]
-}
+# data_dic = {
+#     'name': raw[usne_enter_kiya]["name"],
+#     "address" : raw[usne_enter_kiya]["address"],
+#     "bill_amount" : raw[usne_enter_kiya]['bill'][current_month]["bill_amount"],
+#     "status" : raw[usne_enter_kiya]['bill'][current_month]["status"]
+# }
 
-headings = ['Date','Name','Address','Bill Amount','Status']
+# headings = ['Date','Name','Address','Bill Amount','Status']
 
-data_got = []
+# data_got = []
 
-dates = raw[usne_enter_kiya]['bill'].keys()
+# dates = raw[usne_enter_kiya]['bill'].keys()
 
-for i in dates:
-      temp = []
-      temp.append(i)
-      temp.append(raw[usne_enter_kiya]["name"])
-      temp.append(raw[usne_enter_kiya]["address"])
-      temp.append(raw[usne_enter_kiya]['bill'][i]["bill_amount"])
-      temp.append(raw[usne_enter_kiya]['bill'][i]["status"])
-      data_got.append(tuple(temp))
+# for i in dates:
+#       temp = []
+#       temp.append(i)
+#       temp.append(raw[usne_enter_kiya]["name"])
+#       temp.append(raw[usne_enter_kiya]["address"])
+#       temp.append(raw[usne_enter_kiya]['bill'][i]["bill_amount"])
+#       temp.append(raw[usne_enter_kiya]['bill'][i]["status"])
+#       data_got.append(tuple(temp))
+
+
+from datetime import date
+a = date.today()
+print('{:02d}'.format(a.month)+'-'+str(a.year))

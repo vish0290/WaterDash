@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template, redirect
 import json,os
 import requests
 import pyrebase
+from datetime import date
 from test2 import update_field
 # creating a Flask app
 app = Flask(__name__)
@@ -26,8 +27,9 @@ raw = json.loads(json.dumps(db.child('data').get().val()))
 @app.route('/', methods = ['GET', 'POST'])
 def home():
     if session:
-        global cid
-        current_month = "04-2022"
+        global cid 
+        a = date.today()
+        current_month = '{:02d}'.format(a.month)+'-'+str(a.year)
         usne_enter_kiya = cid
         # Name
         # Address
@@ -48,8 +50,10 @@ def home():
 @app.route('/logs',methods=['GET','POST'])
 def logs():
     if session:
-        current_month = "04-2022"
-        usne_enter_kiya="user1"
+        global cid 
+        a = date.today()
+        current_month = '{:02d}'.format(a.month)+'-'+str(a.year)
+        usne_enter_kiya = cid
         # Name
         # Address
         # Bill amount
@@ -93,7 +97,20 @@ def process_json():
 
 @app.route('/payment')
 def payment():
-    return render_template('payments.html')
+    global cid
+    a = date.today()
+    cur = '{:02d}'.format(a.month)+'-'+str(a.year)
+    dic = {
+        'uname':cid,
+        'name':raw[cid]['name'],
+        'bill_no':raw[cid]["bill"][cur]['bill_no'],
+        'bill_date':raw[cid]["bill"][cur]['bill_date'],
+        'bill_amount':raw[cid]["bill"][cur]['bill_amount'],
+        'phone':raw[cid]['phno'],
+        'email':raw[cid]['email'],
+        'address':raw[cid]['address']
+    }
+    return render_template('payments.html', data=dic)
 
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -128,5 +145,5 @@ if __name__ == '__main__':
     # app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
     # app.run()
     # port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=50000, debug=True)
     
