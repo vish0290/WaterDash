@@ -17,20 +17,28 @@
 
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Droplets</span></div>
-                </a>
-                <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item">Name: {{data["name"]}}</li>
-                    <li class="nav-item">Address: {{data["address"]}}</li>
-                    <li class="nav-item">Bill: {{data["bill_amount"]}}</li>
-                    <li class="nav-item">Status: {{data["status"]}}</li>
-                </ul>
-                <div class="text-center d-none d-md-inline"></div>
+        <nav
+        class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-dark p-1"
+      >
+        <div class="container-fluid d-flex flex-column p-0">
+          <a
+            class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+            href="#"
+          >
+            <div class="sidebar-brand-icon rotate-n-15">
+              <i class="fas fa-laugh-wink"></i>
             </div>
-        </nav>
+            <div class="sidebar-brand-text mx-3"><span>Droplets</span></div>
+          </a>
+          <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item">Name: {{data["name"]}}</li>
+            <li class="nav-item">Address: {{data["address"]}}</li>
+            <li class="nav-item">Bill: &#8377;{{data["bill_amount"]}}</li>
+            <li class="nav-item">Status: {{data["status"]}}</li>
+          </ul>
+          <div class="text-center d-none d-md-inline"></div>
+        </div>
+      </nav>
         <div class="d-flex flex-column" id="content-wrapper">
             <nav class="navbar navbar-light navbar-expand-md">
                 <div class="container-fluid"><a class="navbar-brand" href="{{url_for('home')}}">Home</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -39,7 +47,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{url_for('payment')}}">Payments</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url_for('logs')}}">Transaction Logs</a></li>
                             <li class="nav-item"></li>
-                            <a type="button" class="btn btn-secondary"   href="{{url_for('login')}}">Sign in</a>
+                            
                             <a type="button" href="{{url_for('home')}}" class="btn btn-secondary">Sign out</a>
                         </ul>
                     </div>
