@@ -3,7 +3,9 @@ import json,os
 import requests
 import pyrebase
 from datetime import date
-from test2 import update_field
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
 # creating a Flask app
 app = Flask(__name__)
 session = False
@@ -42,9 +44,53 @@ def home():
             "bill_amount" : raw[usne_enter_kiya]['bill'][current_month]["bill_amount"],
             "status" : raw[usne_enter_kiya]['bill'][current_month]["status"]
         }
+        
+        user = cid
+        data = raw[user]['date']
+        date_keys =data.keys()
+        flowrate = raw[user]['flowrate']
+        volumes = [data[i]['volume'] for i in date_keys]
+        temp_dict = []
+        for i in date_keys:
+            d = {"date":i, "volume in liters":data[i]['volume']  }
+            temp_dict.append(d)
+        df = pd.DataFrame(temp_dict)
+        fig = px.line(df, x="date", y="volume in liters")
+        fig.write_image("static/img/water_vol.png")
+        
+        data = raw[user]['bill']
+        date_keys =data.keys()
+        volumes = [data[i]['bill_amount'] for i in date_keys]
+        temp_dict = []
+        for i in date_keys:
+            d = {"date":i, "bill amount":data[i]['bill_amount']  }
+            temp_dict.append(d)
+        df = pd.DataFrame(temp_dict)
+        fig = px.line(df, x="date", y="bill amount")
+        fig.write_image("static/img/bill.png")
+        
+        fig = go.Figure(go.Indicator(
+        mode = "gauge+number",
+        value = raw[user]['flowrate'],
+        gauge={'axis':{"range":[None,8]},
+            'bar':{'color':'red'}
+            },
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        ))
+        fig.write_image("static/img/flowrate.png")
+        
+        data = raw[user]['date']
+        date_keys =data.keys()
+        temp_dict = []
+        for i in date_keys:
+            d = {"date":i, "water level":data[i]['water_lvl']  }
+            temp_dict.append(d)
+        print(temp_dict)
 
-        print(data_dic)
-        return render_template('index.html', data = data_dic)
+        df = pd.DataFrame(temp_dict)
+        fig = px.bar(df, x="date", y="water level")
+        fig.write_image('static/img/water_lvl.png')
+        return render_template('index.html', data = data_dic, flow=flowrate)
     return redirect('/login')
 
 @app.route('/logs',methods=['GET','POST'])
