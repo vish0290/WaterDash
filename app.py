@@ -90,6 +90,11 @@ def process_json():
     else:
         return 'Content-Type not supported!'
 
+
+@app.route('/payment')
+def payment():
+    return render_template('payments.html')
+
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == "POST":
