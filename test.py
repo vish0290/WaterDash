@@ -88,22 +88,22 @@ user = 'user1'
 #     domain = {'x': [0, 1], 'y': [0, 1]},
 #     title = {'text': "Speed"}))
 
-import plotly.express as px
-data = raw[user]['date']
-date_keys =data.keys()
-temp_dict = []
-for i in date_keys:
-      d = {"date":i, "water level":data[i]['water_lvl']  }
-      temp_dict.append(d)
-print(temp_dict)
+# import plotly.express as px
+# data = raw[user]['date']
+# date_keys =data.keys()
+# temp_dict = []
+# for i in date_keys:
+#       d = {"date":i, "water level":data[i]['water_lvl']  }
+#       temp_dict.append(d)
+# print(temp_dict)
 
-df = pd.DataFrame(temp_dict)
-fig = px.bar(df, x="date", y="water level",color_discrete_map={
-        'some_group': 'red',
-        'some_other_group': 'green'
-    })
-# fig = px.histogram(df, x="date")
-fig.show()
+# df = pd.DataFrame(temp_dict)
+# fig = px.bar(df, x="date", y="water level",color_discrete_map={
+#         'some_group': 'red',
+#         'some_other_group': 'green'
+#     })
+# # fig = px.histogram(df, x="date")
+# fig.show()
 
 
 
@@ -147,3 +147,12 @@ fig.show()
   
 # # Displaying the figure
 # plt.show()
+
+
+
+import requests
+
+url = 'http://127.0.0.1:50000//post_json'
+jsondata = {'user':'user1','flowrate':4.8,'volume':80,'water_lvl':45}
+resp = requests.post(url,json=jsondata) 
+print(resp)

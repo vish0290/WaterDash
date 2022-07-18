@@ -140,13 +140,19 @@ def logs():
 
 @app.route('/post_json', methods=['POST'])
 def process_json():
+    a = date.today()
+    current_date = str(a.day)+'-'+'{:02d}'.format(a.month)+'-'+str(a.year)
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         json_data = request.json
-        return db.child("demo").update(json_data)
+        user = json_data['user']
+        data = {current_date:{'volume':json_data['volume'],'water_lvl':json_data['water_lvl']}}
+        data = {'flowrate':json_data['flow_rate'],'date':{current_date:{'volume':json_data['volume'],'water_lvl':json_data['water_lvl']}}}
+        return db.child('data').child(user).update(data)
+         
     else:
         return 'Content-Type not supported!'
-
+    return print('pass')
 
 @app.route('/payment')
 def payment():
