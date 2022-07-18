@@ -23,12 +23,12 @@ config={
 
 firebase=pyrebase.initialize_app(config)
 db = firebase.database()
-raw = json.loads(json.dumps(db.child('data').get().val()))
 
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
     if session:
+        raw = json.loads(json.dumps(db.child('data').get().val()))
         global cid 
         a = date.today()
         current_month = '{:02d}'.format(a.month)+'-'+str(a.year)
@@ -103,6 +103,7 @@ def logout():
 def logs():
     if session:
         global cid 
+        raw = json.loads(json.dumps(db.child('data').get().val()))
         a = date.today()
         current_month = '{:02d}'.format(a.month)+'-'+str(a.year)
         usne_enter_kiya = cid
@@ -149,6 +150,7 @@ def process_json():
 
 @app.route('/payment')
 def payment():
+    raw = json.loads(json.dumps(db.child('data').get().val()))
     global cid
     a = date.today()
     cur = '{:02d}'.format(a.month)+'-'+str(a.year)
@@ -166,6 +168,7 @@ def payment():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
+    raw = json.loads(json.dumps(db.child('data').get().val()))
     if request.method == "POST":
         uid = request.form.get('uname')
         passw = request.form.get('passw')
