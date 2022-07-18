@@ -142,7 +142,7 @@ def process_json():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         json_data = request.json
-        return db.update(json_data)
+        return db.child("demo").update(json_data)
     else:
         return 'Content-Type not supported!'
 
