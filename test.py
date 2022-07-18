@@ -152,7 +152,7 @@ user = 'user1'
 
 import requests
 
-url = 'https://water-project-01.herokuapp.com/post_json'
+url = 'http://127.0.0.1:50000/post_json'
 jsondata = {'user':'user1','flowrate':4.8,'volume':80,'water_lvl':45}
 resp = requests.post(url,json=jsondata) 
 print(resp)
