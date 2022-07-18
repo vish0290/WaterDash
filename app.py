@@ -147,7 +147,7 @@ def process_json():
         json_data = request.json
         user = json_data['user']
         data = {current_date:{'volume':json_data['volume'],'water_lvl':json_data['water_lvl']}}
-        data = {'flowrate':json_data['flow_rate'],'date':{current_date:{'volume':json_data['volume'],'water_lvl':json_data['water_lvl']}}}
+        data = {'flowrate':json_data['flowrate'],'date':{current_date:{'volume':json_data['volume'],'water_lvl':json_data['water_lvl']}}}
         return db.child('data').child(user).update(data)
          
     else:
