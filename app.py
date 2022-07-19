@@ -171,7 +171,7 @@ def passdata(val):
     val = val.split(':')
     print(val)
     dates_data=raw[itab[0]]['date']
-    dates_data.update({current_date:{'volume':int(itab[1]),'water_lvl':int(itab[2])}})
+    dates_data.update({current_date:{'volume':int(float(itab[1])),'water_lvl':int(float(itab[2]))}})
     data = {'flowrate':float((itab[3])),'date':dates_data}
     db.child('data').child(itab[0]).update(data)
     print(val)
