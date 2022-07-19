@@ -138,26 +138,28 @@ def logs():
         return render_template('logs.html', data = data_dic, heading=headings, rows=data_got)
     
 
-@app.route('/post_json', methods=['POST'])
-def process_json():
+@app.route('/update/<string:val>', methods=['POST'])
+def process_data(val):
+    
     raw = json.loads(json.dumps(db.child('data').get().val()))
     a = date.today()
     current_date = str(a.day)+'-'+'{:02d}'.format(a.month)+'-'+str(a.year)
-    content_type = request.headers.get('Content-Type')
-    if (content_type == 'application/json'):
-        json_data = request.json
-        user = json_data['user']
-        flow = json_data['flowrate']
-        lvl = json_data['water_lvl']
-        vol = json_data['volume']
-        dates_data = raw[user]['date']
-        dates_data.update({current_date:{'volume':vol,'water_lvl':lvl}})
-        data = {'flowrate':flow,'date':dates_data}
-        return db.child('data').child(user).update(data)
+    # content_type = request.headers.get('Content-Type')
+    # if (content_type == 'application/json'):
+    #     json_data = request.json
+    #     user = json_data['user']
+    #     flow = json_data['flowrate']
+    #     lvl = json_data['water_lvl']
+    #     vol = json_data['volume']
+    #     dates_data = raw[user]['date']
+    itab = val.split(':')
+    dates_data.update({current_date:{'volume':itab[1],'water_lvl':itab[2]}})
+    data = {'flowrate':itab[3],'date':dates_data}
+    return db.child('data').child(itab[0]).update(data)
          
-    else:
-        return 'Content-Type not supported!'
-    return print('pass')
+    # else:
+    #     return 'Content-Type not supported!'
+    # return print('pass')
 
 @app.route('/payment')
 def payment():
