@@ -166,6 +166,7 @@ def logs():
 def passdata(val):
     raw = json.loads(json.dumps(db.child('data').get().val()))
     a = date.today()
+    itab = val.split(':')
     current_date = str(a.day)+'-'+'{:02d}'.format(a.month)+'-'+str(a.year)
     val = val.split(':')
     dates_data=raw[itab[0]]['date']
