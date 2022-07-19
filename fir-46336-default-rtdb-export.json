@@ -1,0 +1,176 @@
+{
+  "data": {
+    "user1": {
+      "address": "near bus stop",
+      "bill": {
+        "01-2022": {
+          "bill_amount": 250,
+          "bill_date": "01-01-2022",
+          "bill_no": 2585,
+          "status": "paid"
+        },
+        "02-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-02-2022",
+          "bill_no": 2586,
+          "status": "paid"
+        },
+        "03-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-03-2022",
+          "bill_no": 2587,
+          "status": "paid"
+        },
+        "04-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-04-2022",
+          "bill_no": 2588,
+          "status": "paid"
+        },
+        "05-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-05-2022",
+          "bill_no": 2589,
+          "status": "paid"
+        },
+        "06-2022": {
+          "bill_amount": 300,
+          "bill_date": "01-06-2022",
+          "bill_no": 2590,
+          "status": "paid"
+        },
+        "07-2022": {
+          "bill_amount": 400,
+          "bill_date": "01-07-2022",
+          "bill_no": 2591,
+          "status": "unpaid"
+        }
+      },
+      "date": {
+        "10-07-2022": {
+          "volume": 850,
+          "water_lvl": "35%"
+        },
+        "11-07-2022": {
+          "volume": 650,
+          "water_lvl": "35%"
+        },
+        "12-07-2022": {
+          "volume": 430,
+          "water_lvl": "35%"
+        },
+        "13-07-2022": {
+          "volume": 230,
+          "water_lvl": "35%"
+        },
+        "14-07-2022": {
+          "volume": 350,
+          "water_lvl": "35%"
+        },
+        "15-07-2022": {
+          "volume": 200,
+          "water_lvl": "35%"
+        },
+        "16-07-2022": {
+          "volume": 240,
+          "water_lvl": "35%"
+        },
+        "18-07-2022": {
+          "volume": 210,
+          "water_lvl": 45
+        }
+      },
+      "email": "vish@gmail.com",
+      "flowrate": 6,
+      "height": 50,
+      "limit": false,
+      "name": "vish",
+      "passw": "abcd",
+      "phno": "1234567890"
+    },
+    "user2": {
+      "address": "near shop",
+      "bill": {
+        "01-2022": {
+          "bill_amount": 250,
+          "bill_date": "01-01-2022",
+          "bill_no": 2585,
+          "status": "paid"
+        },
+        "02-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-02-2022",
+          "bill_no": 2586,
+          "status": "paid"
+        },
+        "03-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-03-2022",
+          "bill_no": 2587,
+          "status": "paid"
+        },
+        "04-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-04-2022",
+          "bill_no": 2588,
+          "status": "paid"
+        },
+        "05-2022": {
+          "bill_amount": 350,
+          "bill_date": "01-05-2022",
+          "bill_no": 2589,
+          "status": "paid"
+        },
+        "06-2022": {
+          "bill_amount": 300,
+          "bill_date": "01-06-2022",
+          "bill_no": 2590,
+          "status": "paid"
+        },
+        "07-2022": {
+          "bill_amount": 400,
+          "bill_date": "01-07-2022",
+          "bill_no": 2591,
+          "status": "unpaid"
+        }
+      },
+      "date": {
+        "10-07-2022": {
+          "volume": "0l",
+          "water_lvl": "35%"
+        },
+        "11-07-2022": {
+          "volume": "85l",
+          "water_lvl": "35%"
+        },
+        "12-07-2022": {
+          "volume": "85l",
+          "water_lvl": "35%"
+        },
+        "13-07-2022": {
+          "volume": "85l",
+          "water_lvl": "35%"
+        },
+        "14-07-2022": {
+          "volume": "85l",
+          "water_lvl": "35%"
+        },
+        "15-07-2022": {
+          "volume": "85l",
+          "water_lvl": "35%"
+        },
+        "16-07-2022": {
+          "volume": "85l",
+          "water_lvl": "35%"
+        }
+      },
+      "email": "sachin@gmail.com",
+      "flowrate": "5l-min",
+      "height": 50,
+      "limit": false,
+      "name": "sachin",
+      "passw": "abcd",
+      "phno": "9876543210"
+    }
+  }
+}

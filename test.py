@@ -152,7 +152,7 @@ user = 'user1'
 
 import requests
 
-url = 'http://127.0.0.1:50000/help/user1:450:43:6'
+url = 'https://water-project-01.herokuapp.com/update/user1:450:43:6'
 # jsondata = {'user':'user1','flowrate':4.8,'volume':80,'water_lvl':45}
 resp=requests.get(url)
 print(resp) 
