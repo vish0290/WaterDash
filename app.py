@@ -173,7 +173,6 @@ def passdata(val):
     dates_data=raw[itab[0]]['date']
     if itab[4] == '1':
         flag = True 
-    dates_data.update({current_date:{'volume':0,'water_lvl':25}})
     dates_data[current_date]['volume'] = int(float(itab[1]))
     data = {'flowrate':float((itab[3])),'date':dates_data,'limit':flag}
     db.child('data').child(itab[0]).update(data)
