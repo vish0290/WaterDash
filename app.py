@@ -32,17 +32,17 @@ def home():
         global cid 
         a = date.today()
         current_month = '{:02d}'.format(a.month)+'-'+str(a.year)
-        usne_enter_kiya = cid
+        userid = cid
         # Name
         # Address
         # Bill amount
         # Status
         
         data_dic = {
-            'name': raw[usne_enter_kiya]["name"],
-            "address" : raw[usne_enter_kiya]["address"],
-            "bill_amount" : raw[usne_enter_kiya]['bill'][current_month]["bill_amount"],
-            "status" : raw[usne_enter_kiya]['bill'][current_month]["status"]
+            'name': raw[userid]["name"],
+            "address" : raw[userid]["address"],
+            "bill_amount" : raw[userid]['bill'][current_month]["bill_amount"],
+            "status" : raw[userid]['bill'][current_month]["status"]
         }
         
         user = cid
